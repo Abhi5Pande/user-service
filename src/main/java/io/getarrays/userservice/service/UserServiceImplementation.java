@@ -81,8 +81,9 @@ public class UserServiceImplementation implements UserService , UserDetailsServi
     @Override
     public User regiserUser(String name, String username, String password) {
         User user = new User(null, name, username, password, new ArrayList<>());
+        saveUser(user);
         addRoleToUser(username,"ROLE_USER");
-        return saveUser(user);
+        return user;
     }
 
 }

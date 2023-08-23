@@ -1,0 +1,7 @@
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - "./data:/var/lib/mysql"

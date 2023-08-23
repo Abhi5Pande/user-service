@@ -14,5 +14,5 @@ public interface UserService {
     User getUser(String username);
     List<User> getUsers();
 
-    User regiserUser(String name,String username, String password);
+    User regiserUser(String name, String username, String password);
 }

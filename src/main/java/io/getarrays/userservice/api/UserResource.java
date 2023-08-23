@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.getarrays.userservice.domain.Role;
 import io.getarrays.userservice.domain.User;
 import io.getarrays.userservice.service.UserService;
+import io.getarrays.userservice.service.dto.UserRegistrationDTO;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.apache.tomcat.util.http.parser.Authorization;
@@ -115,14 +116,9 @@ public class UserResource {
     public ResponseEntity<?> registerUser(@RequestBody UserRegistrationDTO userRegistrationDTO)
     {
         URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/user/register").toString());
-        userService.regiserUser(userRegistrationDTO.name, userRegistrationDTO.username, userRegistrationDTO.password);
+        userService.regiserUser(userRegistrationDTO.getName(), userRegistrationDTO.getUsername(), userRegistrationDTO.getPassword());
         return ResponseEntity.created(uri).build();
     }
 
-    @Data
-    class UserRegistrationDTO {
-        private String name;
-        private String username;
-        private String password;
-    }
+
 }
