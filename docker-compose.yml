@@ -1,7 +1,12 @@
+version: "3.8"  # Use the appropriate version
+
 services:
-  mysql:
+  mysql-abhijit:
     image: mysql
+    container_name: mysql-userservice
     ports:
       - "3306:3306"
     volumes:
       - "./data:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: Welcome23!
